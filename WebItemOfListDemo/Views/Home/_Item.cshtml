@@ -1,0 +1,34 @@
+﻿@model WebItemOfListDemo.Models.Item
+<form id="myform@(Model.Guid)" action="@Url.Action("someaction","Home")" controller="Home" method="post">
+    <input type="hidden" asp-for="@Model.a" />
+    <input type="hidden" asp-for="@Model.b" />
+    <input type="hidden" asp-for="@Model.c" />
+    <input type="hidden" asp-for="@Model.d" />
+    <input type="hidden" asp-for="@Model.Guid" />
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.a)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.b)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.c)
+        </td>
+        <td>
+            @if (Model.istrue)
+            {
+                <input asp-for="@Model.istrue" type="radio" value="@Model.istrue" class="form-check form-control" /> @Model.istrue
+                <input asp-for="@Model.istrue" type="radio" value="False" class="form-check form-control" />
+            }
+            else
+            {
+                <input asp-for="@Model.istrue" type="radio" value="@Model.istrue" class="form-check form-control" /> @Model.istrue
+                <input asp-for="@Model.istrue" type="radio" value="True" class="form-check form-control" />
+            }
+        </td>
+    </tr>
+</form>
+
+
+

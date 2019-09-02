@@ -1,0 +1,19 @@
+﻿@using WebItemOfListDemo.Models
+@model List<Item>
+@{
+    ViewData["Title"] = "Home Page";
+}
+@for (var item = 0; item < Model.Count(); item++)
+{
+    @await Html.PartialAsync("_Item", Model[item]);
+}
+@section Scripts{
+    <script type="text/javascript">
+        $('input[type=radio]').on('click', function () {
+            console.log($(this).closest('form').serialize());
+            $(this).closest('form').submit(function (e) {
+                alert("submitted");
+            });
+        });
+    </script>
+}
