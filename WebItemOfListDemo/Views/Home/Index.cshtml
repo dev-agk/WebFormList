@@ -11,9 +11,8 @@
     <script type="text/javascript">
         $('input[type=radio]').on('click', function () {
             console.log($(this).closest('form').serialize());
-            $(this).closest('form').submit(function (e) {
-                alert("submitted");
-            });
+            $(this).closest('form').submit();   // don't pass in an handler if you want to trigger an event, 
+                                                // otherwise you'll just bind an event handler, the form itself is not submitted.
         });
     </script>
 }
